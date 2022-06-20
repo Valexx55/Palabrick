@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Palabrick</string>
+    <string name="borrar">DEL</string>
+    <string name="enviar">SEND</string>
+    <string name="mensaje_derrota">YOU HAVE LOST, IT WAS</string>
+    <string name="palabra_no_valida">NOT A VALID WORD</string>
+    <string name="palabra_incompleta">COMPLETE THE WORD BEFORE TEST</string>
+    <string name="mensaje_victoria">YOU WON</string>
+    <string name="estadisticas">Statistics</string>
+    <string name="menu_ajustes">Settings</string>
+    <string name="menu_ayuda">Help</string>
+    <string name="menu_estadisticas">Statistics</string>
+    <string name="menu_creditos">Credits</string>
+    <string name="menu_compartir">Share</string>
+    <string name="mensaje_compartir">Download this APP</string>
+    <string name="mensaje_instale_wasap_o_telegram">Install WhatsaApp o or Telegram for sharing this app</string>
+    <string name="titulo_creditos">Credits</string>
+    <string name="titulo_ayuda">Help</string>
+    <string name="titulo_ajustes">Settings</string>
+    <string name="ajuste_tamanio">Word Length</string>
+    <string name="mensaje_ajustes_cambio_tamanio">WORD ENGTH SETTINGS WONT BE VISIBLE UNTIL APP RESTARTS</string>
+</resources>

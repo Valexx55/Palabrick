@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Palabrick</string>
+    <string name="borrar">BORRAR</string>
+    <string name="enviar">ENVIAR</string>
+    <string name="mensaje_derrota">HAS PERIDO, ERA</string>
+    <string name="palabra_no_valida">PALABRA NO VALIDA</string>
+    <string name="palabra_incompleta">COMPLETE LA PALABRA PARA PROBAR</string>
+    <string name="mensaje_victoria">HAS GANADO</string>
+    <string name="estadisticas">Estadisticas</string>
+    <string name="menu_ajustes">Ajustes</string>
+    <string name="menu_ayuda">Ayuda</string>
+    <string name="menu_estadisticas">Estadísticas</string>
+    <string name="menu_creditos">Créditos</string>
+    <string name="menu_compartir">Compartir</string>
+    <string name="mensaje_compartir">Descárgate la APP</string>
+    <string name="mensaje_instale_wasap_o_telegram">Instale WhatsApp o Telegram para poder compartir</string>
+    <string name="titulo_creditos">Créditos</string>
+    <string name="titulo_ayuda">Ayuda</string>
+    <string name="titulo_ajustes">Ajustes</string>
+    <string name="ajuste_tamanio">TAMAÑO PALABRA</string>
+    <string name="mensaje_ajustes_cambio_tamanio">EL AJUSTE DEL TAMAÑO SE HARÁ EFECTIVO AL REINICIAR LA APP</string>
+</resources>

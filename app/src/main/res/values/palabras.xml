@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Each position of id refers to an string array -->
+    <array name="array_categorias">
+        <item>@array/palabras5</item>
+        <item>@array/palabras4</item>
+        <item>@array/palabras3</item>
+    </array>
+
+    <string-array name="palabras5">
+        <item>ABACO</item>
+        <item>ABAJO</item>
+        <item>ABABA</item>
+        <item>ABAPO</item>
+        <item>ABATE</item>
+    </string-array>
+    <string-array name="palabras4">
+        <item>ciervo almizclero</item>
+        <item>estrella de mar</item>
+        <item>ornitorrinco</item>
+        <item>rinoceronte</item>
+        <item>puercoespin</item>
+        <item>salamandra</item>
+        <item>leopardo</item>
+        <item>facoquero</item>
+        <item>suricato</item>
+        <item>okapi</item>
+
+    </string-array>
+    <string-array name="palabras3">
+        <item>tenis de mesa</item>
+        <item>baloncesto</item>
+        <item>waterpolo</item>
+        <item>badminton</item>
+        <item>lacrosse</item>
+        <item>atletismo</item>
+        <item>curling</item>
+        <item>sky</item>
+        <item>golf</item>
+        <item>futbol</item>
+        <item>boxeo</item>
+        <item>futbol sala</item>
+        <item>escalada</item>
+        <item>polo</item>
+        <item>hipica</item>
+
+    </string-array>
+
+
+
+</resources>

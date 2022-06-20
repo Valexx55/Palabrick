@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item
+    android:title="@string/menu_ajustes"
+    android:orderInCategory="1"
+    app:showAsAction="always|withText"
+    android:icon="@drawable/ic_baseline_settings_24"
+    android:id="@+id/opcion_ajustes"
+    ></item>
+<item
+    android:title="@string/menu_ayuda"
+    android:orderInCategory="2"
+    app:showAsAction="always|withText"
+    android:icon="@drawable/ic_baseline_info_24"
+    android:id="@+id/opcion_ayuda"></item>
+<item
+    android:title="@string/menu_estadisticas"
+    android:orderInCategory="3"
+    app:showAsAction="never"
+    android:id="@+id/opcion_estadisticas"></item>
+<item
+    android:title="@string/menu_compartir"
+    android:orderInCategory="4"
+    app:showAsAction="never"
+    android:id="@+id/opcion_compartir"></item>
+<item
+    android:title="@string/menu_creditos"
+    android:orderInCategory="5"
+    app:showAsAction="never"
+    android:id="@+id/opcion_creditos"></item>
+</menu>
