@@ -21,10 +21,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.val.palabrick.R;
+import edu.val.palabrick.model.ResultadosEstadisticosJugador;
 import edu.val.palabrick.util.Constantes;
 
 public class JuegoMainActivityInflada extends AppCompatActivity {
@@ -44,6 +48,7 @@ public class JuegoMainActivityInflada extends AppCompatActivity {
     private List<LinearLayout> lista_filas = null;
 
     private int preferencia_tamanio;
+   // Logger
 
     private final static String RUTA_TIENDA = "https://play.google.com/store/apps/details?id=edu.val.palabrick";
 
@@ -51,6 +56,19 @@ public class JuegoMainActivityInflada extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_main_inflado);
+
+        //SERIALIZAR RESULTADO ResultadosEstadisticosJugador CON GSON
+        //1 objeto de la clase ResultadosEstadisticosJugador
+        ResultadosEstadisticosJugador resultados = new ResultadosEstadisticosJugador(100, 65);
+        //2 obtenemos una instancia de GSON
+        Gson gson = new Gson();
+        //3 uso gson para Serializar (pasar a String en formato JSON) resultados
+        String resultados_json = gson.toJson(resultados);
+        //4 imprimimos el objeto en formato JSON
+        Log.d(ETIQUETA_LOG, "Resultado en JSON = " + resultados_json);
+        //5 deserializamos : pasar de TEXTO JSON a Objeto /variable de Java
+        ResultadosEstadisticosJugador resultados2 = gson.fromJson(resultados_json, ResultadosEstadisticosJugador.class);
+        Log.d(ETIQUETA_LOG, "resultados2.getPartidas_jugadas() = " + resultados2.getPartidas_jugadas());
         //TODO adaptar la longitud del tablero (tamanio palabra)
         //a los ajustes del usuario
 

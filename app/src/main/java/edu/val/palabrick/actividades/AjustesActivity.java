@@ -20,6 +20,7 @@ import java.util.List;
 
 import edu.val.palabrick.R;
 import edu.val.palabrick.util.Constantes;
+import edu.val.palabrick.util.GestionPreferenciasUsuario;
 
 public class AjustesActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -97,7 +98,7 @@ public class AjustesActivity extends AppCompatActivity implements AdapterView.On
             guardarOpcionLongitud (opcion);
         } else {
             //el usuario no ha tocado, se ha entrado por primera vez
-            prefencia_tamanio_antigua = leerPrefrenciaTamanio();
+            prefencia_tamanio_antigua = GestionPreferenciasUsuario.leerPreferenciaTamanioAjustes(this);
             prefencia_tamanio_nueva = prefencia_tamanio_antigua;
             //TODO PONER LA PRERENCIA ACTUAL AL INICIO DEL SPINER
             //dado un número, decir en qué posición está
@@ -112,17 +113,7 @@ public class AjustesActivity extends AppCompatActivity implements AdapterView.On
     }
 
 
-    private int leerPrefrenciaTamanio()
-    {
-        int tamanio = 0;
-        String tamanio_aux = null;
 
-        SharedPreferences fichero_prefs = getSharedPreferences(Constantes.NOMBRE_FICHERO_PREFERENCES, MODE_PRIVATE);
-        tamanio_aux = fichero_prefs.getString("longitud_palabras","5");
-        tamanio = Integer.parseInt(tamanio_aux);
-
-        return tamanio;
-    }
 
     @Override
     protected void onStop() {
@@ -135,10 +126,7 @@ public class AjustesActivity extends AppCompatActivity implements AdapterView.On
 
     private void guardarOpcionLongitud (String longitud_seleccionada)
     {
-        SharedPreferences sharedPreferences = getSharedPreferences(Constantes.NOMBRE_FICHERO_PREFERENCES, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("longitud_palabras", longitud_seleccionada);
-        editor.commit();
+        GestionPreferenciasUsuario.guardarPreferenciaTamanioAjustes(this, longitud_seleccionada);
         prefencia_tamanio_nueva = Integer.parseInt(longitud_seleccionada);
     }
 

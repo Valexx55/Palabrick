@@ -1,12 +1,22 @@
 package edu.val.palabrick.model;
 
+//import com.google.gson.Gson;
+
 public class ResultadosEstadisticosJugador {
 
     //QUIERO GUARDAR LOS RESULTADOS ESTADISTICOS EN UN FICHERO DE PREFERNCES...
     //LAS PREFERENCES SOLO PUEDO GUARDAR INT, STRING, BOOLEAN, FLOAT....
     //¿CÓMO GUARDAR UN Objeto de la Clase ResultadosEstadisticosJugador?¿?¿?¿
 
+    //EL PASO PREVIO ES SERIALIZAR (oBJETO A TEXTO)
 
+    //OBJETO A formato JSON: vamos a usar una librería de terceros GSON de Google
+
+    //¿¿qué es GSON. es una librería JAVA de GOOGLE, que me permite
+    //fácilmente serializar y des a JSON objetos JAVA
+
+
+   // Gson
     private int partidas_jugadas;
     private int porcentaje_victorias;
 
