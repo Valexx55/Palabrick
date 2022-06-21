@@ -18,5 +18,15 @@ public class EstadisticasActivity extends AppCompatActivity {
         int num_intentos = intent_estadisticas.getIntExtra("INTENTOS", -1);
         Log.d(InicioActivity.ETIQUETA_LOG, "Numero de intentos = "+ num_intentos);
 
+        initActividad();
     }
+
+    private void initActividad()
+    {
+        //LEER DEL FICHERO DE PREFRENCIAS
+        //Y ACTUALIZAR LA PATANLLA DE ESTADÍSTICAS
+        //CON LOS DATOS LEÍDOS
+    }
+
+
 }

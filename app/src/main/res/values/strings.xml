@@ -19,4 +19,6 @@
     <string name="titulo_ajustes">Ajustes</string>
     <string name="ajuste_tamanio">TAMAÑO PALABRA</string>
     <string name="mensaje_ajustes_cambio_tamanio">EL AJUSTE DEL TAMAÑO SE HARÁ EFECTIVO AL REINICIAR LA APP</string>
+    <string name="mensaje_estaditicas_partidas_jugadas">PARTIDAS JUGADAS</string>
+    <string name="mensaje_estaditicas_partidas_ganadas">VICTORIAS</string>
 </resources>

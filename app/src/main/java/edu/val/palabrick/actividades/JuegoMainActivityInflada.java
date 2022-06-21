@@ -30,6 +30,7 @@ import java.util.List;
 import edu.val.palabrick.R;
 import edu.val.palabrick.model.ResultadosEstadisticosJugador;
 import edu.val.palabrick.util.Constantes;
+import edu.val.palabrick.util.GestionPreferenciasUsuario;
 
 public class JuegoMainActivityInflada extends AppCompatActivity {
 
@@ -57,43 +58,7 @@ public class JuegoMainActivityInflada extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_main_inflado);
 
-        //SERIALIZAR RESULTADO ResultadosEstadisticosJugador CON GSON
-        //1 objeto de la clase ResultadosEstadisticosJugador
-        ResultadosEstadisticosJugador resultados = new ResultadosEstadisticosJugador(100, 65);
-        //2 obtenemos una instancia de GSON
-        Gson gson = new Gson();
-        //3 uso gson para Serializar (pasar a String en formato JSON) resultados
-        String resultados_json = gson.toJson(resultados);
-        //4 imprimimos el objeto en formato JSON
-        Log.d(ETIQUETA_LOG, "Resultado en JSON = " + resultados_json);
-        //5 deserializamos : pasar de TEXTO JSON a Objeto /variable de Java
-        ResultadosEstadisticosJugador resultados2 = gson.fromJson(resultados_json, ResultadosEstadisticosJugador.class);
-        Log.d(ETIQUETA_LOG, "resultados2.getPartidas_jugadas() = " + resultados2.getPartidas_jugadas());
-        //TODO adaptar la longitud del tablero (tamanio palabra)
-        //a los ajustes del usuario
-
-        //tengo que leer la preferencia del usuario
-        //y mostrar el tablero de la longitud preferida por el usuario
-
         iniciarActividad ();
-
-      /*  String palabra = "HOLA";
-        String palabra1 = "DAVID";
-
-        palabra1.length();//5 --> método dinámico: dependiendo con que objeto se invoca
-        palabra.length();//4 obtiene resultados disntintos, porque depende
-
-        int resultado = Integer.parseInt("344");
-        Integer i1 = new Integer(2);
-        Integer i2 = new Integer(5);
-
-        int resultado1 =  i1.parseInt("344");
-        int resultado2 =  i2.parseInt("344");*/
-
-        Log.d(ETIQUETA_LOG, "LO QUE QUIERO ESCRIBIR");// --> estático
-
-        //Log.d(ETIQUETA_LOG, " d = " +d);
-
 
     }
 
@@ -213,9 +178,7 @@ public class JuegoMainActivityInflada extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //?¿ HA CAMBIADO EL TAMAÑO?¿
-        //SÍ
-        //NO
+
     }
 
     /**
@@ -475,7 +438,7 @@ public class JuegoMainActivityInflada extends AppCompatActivity {
                     Log.d(ETIQUETA_LOG, "HAS GANADO " +this.palabra_adivnar);
                     String mensaje_victoria = getString(R.string.mensaje_victoria);
                     Toast.makeText(this, mensaje_victoria +" "+this.palabra_adivnar, Toast.LENGTH_LONG).show();
-                    irAEstadisticas ();
+                    irAEstadisticas (true);
                 } else {
                     //SI NO HA HACERTADO
                     Log.d(ETIQUETA_LOG, "NO HA ACERTADO " +this.palabra_adivnar);
@@ -487,20 +450,11 @@ public class JuegoMainActivityInflada extends AppCompatActivity {
                         this.palabra_usuario = "";
                     }
                     else {
-                        //NO QUEDAN INTENTOS
-                        //INFORMAR DERROTA
+
                         Log.d(ETIQUETA_LOG, "HAS PERDIDO, ERA " +this.palabra_adivnar);
-
-                        //válido de las dos maneras, para obtener un literal traducido sobre la marcha
-                        //on the fly
                         String mensaje_derrota = getString(R.string.mensaje_derrota);
-                        //String mensaje_derrota = getResources().getString(R.string.mensaje_derrota);
-
-                        //Toast.makeText(this, "HAS PERDIDO, ERA " +this.palabra_adivnar, Toast.LENGTH_LONG).show();
-                        //ponemos i18n
                         Toast.makeText(this, mensaje_derrota + " " +this.palabra_adivnar, Toast.LENGTH_LONG).show();
-                        //NAVEGAR A ESTADISTICAS, GESTIONAR FINAL?¿
-                        irAEstadisticas ();
+                        irAEstadisticas (false);
                     }
                 }
             } else {
@@ -522,13 +476,50 @@ public class JuegoMainActivityInflada extends AppCompatActivity {
                 //cambiar de fila, ACTUALIZAR CASILLA actual
     }
 
-    private void  irAEstadisticas ()
+    private void  irAEstadisticas (boolean victoria)
     {
         //lanzamos un intent para visitar la pantalla de estadísticas
+        actualizarEstadisticas (victoria);
+
         Intent intent_estadisticas = new Intent(this, EstadisticasActivity.class);
         intent_estadisticas.putExtra("INTENTOS", this.intentos_actual);
         //intent_estadisticas.putExtra("LISTA_INTENTOS", TipoCompracion.COINCIDE);
         startActivity(intent_estadisticas);
+    }
+
+    private void actualizarEstadisticas (boolean victoria)
+    {
+        //leer estadísticas
+        ResultadosEstadisticosJugador resultadosEstats = GestionPreferenciasUsuario.leerEstadísticasJugador(this);
+        if (resultadosEstats==null)
+        {
+            resultadosEstats = new ResultadosEstadisticosJugador(0, 0, 0, 0);
+        }
+        //incrementar el número de partidas jugadas
+        int partidas_jugadas = resultadosEstats.getPartidas_jugadas();
+        partidas_jugadas = partidas_jugadas + 1;
+        resultadosEstats.setPartidas_jugadas(partidas_jugadas);
+
+        if (victoria)
+        {
+            int numero_victorias = resultadosEstats.getNumero_victorias();
+            numero_victorias++;
+            resultadosEstats.setNumero_victorias(numero_victorias);
+        } else {
+            int numero_derrotas = resultadosEstats.getNumero_derrotas();
+            numero_derrotas++;
+            resultadosEstats.setNumero_derrotas(numero_derrotas);
+        }
+
+        //TODO actualizar el % de victorias
+        //porcentaje vicotias = victorias/total
+
+        float porcentaje_victorias = (resultadosEstats.getNumero_victorias()*100/resultadosEstats.getPartidas_jugadas());
+        int porcentaje_victorias_entero = Math.round(porcentaje_victorias);//redondea el decimal al entero más próximo
+        resultadosEstats.setPorcentaje_victorias(porcentaje_victorias_entero);
+
+        GestionPreferenciasUsuario.guardarEstadisticasJugador(this, resultadosEstats);
+        //guardar nuevas estadísticas
     }
 
     public void botonTocado(View view) {

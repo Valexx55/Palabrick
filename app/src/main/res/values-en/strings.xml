@@ -20,4 +20,6 @@
     <string name="titulo_ajustes">Settings</string>
     <string name="ajuste_tamanio">Word Length</string>
     <string name="mensaje_ajustes_cambio_tamanio">WORD ENGTH SETTINGS WONT BE VISIBLE UNTIL APP RESTARTS</string>
+    <string name="mensaje_estaditicas_partidas_ganadas">VICTORIES</string>
+    <string name="mensaje_estaditicas_partidas_jugadas">GAMES PLAYED</string>
 </resources>
