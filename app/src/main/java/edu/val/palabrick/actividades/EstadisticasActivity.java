@@ -29,12 +29,16 @@ public class EstadisticasActivity extends AppCompatActivity {
         //TODO EN 10/15 MINUTOS
         //LEER DEL FICHERO DE PREFRENCIAS
         ResultadosEstadisticosJugador rej= GestionPreferenciasUsuario.leerEstadísticasJugador(this);
-        //Y ACTUALIZAR LA PATANLLA DE ESTADÍSTICAS
         TextView partidas_jugadas = findViewById(R.id.partidas_jugadas);
         TextView porcentaje_victorias = findViewById(R.id.porcentaje_victorias);
-        //CON LOS DATOS LEÍDOS
+        if (rej==null)
+        {   //no había registros estadíticos
+            rej = new ResultadosEstadisticosJugador(0, 0, 0, 0);
+        }
         partidas_jugadas.setText(rej.getPartidas_jugadas()+"");
-        porcentaje_victorias.setText(rej.getPorcentaje_victorias()+"");
+        porcentaje_victorias.setText(rej.getPorcentaje_victorias()+"%");
+
+
     }
 
 
