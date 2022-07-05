@@ -22,4 +22,6 @@
     <string name="mensaje_ajustes_cambio_tamanio">WORD ENGTH SETTINGS WONT BE VISIBLE UNTIL APP RESTARTS</string>
     <string name="mensaje_estaditicas_partidas_ganadas">VICTORIES</string>
     <string name="mensaje_estaditicas_partidas_jugadas">GAMES PLAYED</string>
+    <string name="titulo_credito">CREATED BY</string>
+    <string name="texto_info_creditos">" \\n         La aplicación ha sido desarrollada en el ámbito académico como práctica de un curso de Android promovido por el Servicio Estatal de Empleo Español          \\n         La aplicación no obtiene nigún dato personal del usuario          \\n Esta exenta de cualquier garantía.          \\n Para cualquier sugerencia o comentario contacte con alguno de los autores"</string>
 </resources>

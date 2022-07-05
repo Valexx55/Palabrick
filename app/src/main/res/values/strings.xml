@@ -21,4 +21,12 @@
     <string name="mensaje_ajustes_cambio_tamanio">EL AJUSTE DEL TAMAÑO SE HARÁ EFECTIVO AL REINICIAR LA APP</string>
     <string name="mensaje_estaditicas_partidas_jugadas">PARTIDAS JUGADAS</string>
     <string name="mensaje_estaditicas_partidas_ganadas">VICTORIAS</string>
+    <string name="titulo_credito">AUTORES DE LA APP</string>
+    <string name="texto_info_creditos">
+        \n
+        La aplicación ha sido desarrollada en el ámbito académico como práctica de un curso de Android promovido por el Servicio Estatal de Empleo Español
+        \n
+        La aplicación no obtiene nigún dato personal del usuario
+        \n Esta exenta de cualquier garantía.
+        \n Para cualquier sugerencia o comentario contacte con alguno de los autores</string>
 </resources>
