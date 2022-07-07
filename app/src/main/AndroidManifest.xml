@@ -54,7 +54,25 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize|keyboard">
-<!--            <intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+                <category android:name="android.intent.category.BROWSABLE"></category>
+                <data android:scheme="http" android:host="edu.val.palabrick" />
+            </intent-filter>
+<!--
+http://edu.val.palabrick
+
+<data android:scheme="string"
+ android:host="string"
+ android:port="string"
+ android:path="string"
+ android:pathPattern="string"
+ android:pathPrefix="string"
+ android:mimeType="string" />
+<scheme>://<host>:<port>[<path>|<pathPrefix>|<pathPattern
+
+<intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->

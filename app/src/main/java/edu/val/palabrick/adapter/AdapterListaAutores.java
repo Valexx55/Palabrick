@@ -36,6 +36,7 @@ public class AdapterListaAutores extends RecyclerView.Adapter<AutorViewHolder> {
 
 
 
+
     ////este método "rellena un holder" - lo recicla
     @Override
     public void onBindViewHolder(@NonNull AutorViewHolder holder, int position) {

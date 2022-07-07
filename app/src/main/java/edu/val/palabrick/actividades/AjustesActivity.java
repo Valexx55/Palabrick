@@ -36,6 +36,8 @@ public class AjustesActivity extends AppCompatActivity implements AdapterView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajustes);
 
+
+
         //SPINNER O LISTA DESPLEGABLE
         this.spinner = findViewById(R.id.spinner_longitud);
         //Adapter --> actúa como proveedor de datos del spinner
